@@ -18,11 +18,11 @@
 
         <style>
             /* Custom color utilities - NMDPRA Official Colors */
-            .bg-nmdpra-blue { background-color: #003366 !important; }
-            .text-nmdpra-blue { color: #003366 !important; }
-            .border-nmdpra-blue { border-color: #003366 !important; }
-            .hover\:text-nmdpra-blue:hover { color: #003366 !important; }
-            .hover\:bg-nmdpra-blue:hover { background-color: #003366 !important; }
+            .bg-nmdpra-blue { background-color: #2D5F3F !important; }
+            .text-nmdpra-blue { color: #2D5F3F !important; }
+            .border-nmdpra-blue { border-color: #2D5F3F !important; }
+            .hover\:text-nmdpra-blue:hover { color: #2D5F3F !important; }
+            .hover\:bg-nmdpra-blue:hover { background-color: #2D5F3F !important; }
 
             .bg-nmdpra-green { background-color: #008751 !important; }
             .text-nmdpra-green { color: #008751 !important; }
@@ -30,12 +30,12 @@
             .bg-nmdpra-orange { background-color: #FFB300 !important; }
             .text-nmdpra-orange { color: #FFB300 !important; }
 
-            .bg-nmdpra-blue\/10 { background-color: rgba(0, 51, 102, 0.1) !important; }
+            .bg-nmdpra-blue\/10 { background-color: rgba(45, 95, 63, 0.1) !important; }
             .bg-nmdpra-green\/10 { background-color: rgba(0, 135, 81, 0.1) !important; }
             .bg-nmdpra-orange\/10 { background-color: rgba(255, 179, 0, 0.1) !important; }
 
             .hero-gradient {
-                background: linear-gradient(135deg, #003366 0%, #008751 100%);
+                background: linear-gradient(135deg, #2D5F3F 0%, #008751 100%);
             }
             .card-hover {
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -154,7 +154,9 @@
                         <a href="#about" class="text-gray-600 hover:text-nmdpra-blue transition-colors">About</a>
                         <a href="#focus-areas" class="text-gray-600 hover:text-nmdpra-blue transition-colors">Focus Areas</a>
                         <a href="#process" class="text-gray-600 hover:text-nmdpra-blue transition-colors">Process</a>
-                        <a href="#hall-of-fame" class="text-gray-600 hover:text-nmdpra-blue transition-colors">Hall of Fame</a>
+                         <a href="{{ route('admin.innovations.create') }}" class="text-gray-600 hover:text-nmdpra-blue transition-colors">Submit an Idea</a>
+                          <a href="{{ route('admin.plrr.feedback') }}" class="text-gray-600 hover:text-nmdpra-blue transition-colors">PLRR Feedback</a>
+                        <a href="#hall-of-fame" class="text-gray-600 hover:text-nmdpra-blue transition-colors">Innovators Hall of Fame</a>
                         @if (Route::has('login'))
                             @auth
                                 <a href="{{ url('/dashboard') }}" class="bg-nmdpra-blue text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
@@ -248,7 +250,7 @@
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="#hall-of-fame" class="bg-nmdpra-green text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-600 transition-colors inline-flex items-center">
                             <i class="fas fa-trophy mr-2"></i>
-                            Hall of Fame
+                            Innovators Hall of Fame
                         </a>
                         <a href="#submit-idea" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-nmdpra-blue transition-colors inline-flex items-center">
                             <i class="fas fa-plus mr-2"></i>
@@ -523,7 +525,7 @@
         <section id="hall-of-fame" class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Hall of Fame</h2>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">NMDPRA Innovators Hall of Fame</h2>
                     <div class="section-divider w-24 mx-auto mb-8"></div>
                     <p class="text-xl text-gray-600">Celebrating our innovation champions and their groundbreaking contributions</p>
                 </div>
@@ -531,8 +533,14 @@
                     <!-- Innovation Champion 1 -->
                     <div class="card-hover bg-white p-6 rounded-xl shadow-sm border">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                                AM
+                            <div class="w-12 h-12 relative overflow-hidden rounded-full flex-shrink-0">
+                                <img src="{{ asset('images/innovators/ihf-1.png') }}"
+                                     alt="Adebayo Mensah"
+                                     class="w-full h-full object-cover"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg" style="display:none;">
+                                    AM
+                                </div>
                             </div>
                             <div class="ml-4">
                                 <h3 class="font-bold text-gray-900">Adebayo Mensah</h3>
@@ -550,8 +558,14 @@
                     <!-- Innovation Champion 2 -->
                     <div class="card-hover bg-white p-6 rounded-xl shadow-sm border">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                                CO
+                            <div class="w-12 h-12 relative overflow-hidden rounded-full flex-shrink-0">
+                                <img src="{{ asset('images/innovators/ihf-2.jpg') }}"
+                                     alt="Chioma Okonkwo"
+                                     class="w-full h-full object-cover"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="w-full h-full bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg" style="display:none;">
+                                    CO
+                                </div>
                             </div>
                             <div class="ml-4">
                                 <h3 class="font-bold text-gray-900">Chioma Okonkwo</h3>
@@ -569,8 +583,14 @@
                     <!-- Innovation Champion 3 -->
                     <div class="card-hover bg-white p-6 rounded-xl shadow-sm border">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                                IB
+                            <div class="w-12 h-12 relative overflow-hidden rounded-full flex-shrink-0">
+                                <img src="{{ asset('images/innovators/ihf-1.png') }}"
+                                     alt="Ibrahim Bello"
+                                     class="w-full h-full object-cover"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg" style="display:none;">
+                                    IB
+                                </div>
                             </div>
                             <div class="ml-4">
                                 <h3 class="font-bold text-gray-900">Ibrahim Bello</h3>
@@ -588,8 +608,14 @@
                     <!-- Innovation Champion 4 -->
                     <div class="card-hover bg-white p-6 rounded-xl shadow-sm border">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                                FE
+                            <div class="w-12 h-12 relative overflow-hidden rounded-full flex-shrink-0">
+                                <img src="{{ asset('images/innovators/ihf-2.jpg') }}"
+                                     alt="Fatima Eze"
+                                     class="w-full h-full object-cover"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg" style="display:none;">
+                                    FE
+                                </div>
                             </div>
                             <div class="ml-4">
                                 <h3 class="font-bold text-gray-900">Fatima Eze</h3>
@@ -607,8 +633,14 @@
                     <!-- Innovation Champion 5 -->
                     <div class="card-hover bg-white p-6 rounded-xl shadow-sm border">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                                OA
+                            <div class="w-12 h-12 relative overflow-hidden rounded-full flex-shrink-0">
+                                <img src="{{ asset('images/innovators/ihf-1.png') }}"
+                                     alt="Oluwaseun Adebisi"
+                                     class="w-full h-full object-cover"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="w-full h-full bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg" style="display:none;">
+                                    OA
+                                </div>
                             </div>
                             <div class="ml-4">
                                 <h3 class="font-bold text-gray-900">Oluwaseun Adebisi</h3>
@@ -626,8 +658,14 @@
                     <!-- Innovation Champion 6 -->
                     <div class="card-hover bg-white p-6 rounded-xl shadow-sm border">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                                NA
+                            <div class="w-12 h-12 relative overflow-hidden rounded-full flex-shrink-0">
+                                <img src="{{ asset('images/innovators/ihf-2.jpg') }}"
+                                     alt="Ngozi Akinola"
+                                     class="w-full h-full object-cover"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="w-full h-full bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg" style="display:none;">
+                                    NA
+                                </div>
                             </div>
                             <div class="ml-4">
                                 <h3 class="font-bold text-gray-900">Ngozi Akinola</h3>
@@ -646,7 +684,7 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bg-gray-900 text-white py-12">
+        <footer class="bg-nmdpra-blue text-white py-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h3 class="text-2xl font-bold mb-4">Nigerian Midstream and Downstream Petroleum Regulatory Authority</h3>
@@ -657,7 +695,7 @@
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Support</a>
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a>
                     </div>
-                    <div class="border-t border-gray-800 pt-8">
+                    <div class="border-t border-white-800 pt-8">
                         <p class="text-gray-400">
                             © 2026 NMDPRA. All rights reserved. | Empowering regulatory excellence through innovation
                         </p>
