@@ -50,7 +50,7 @@
                 <div class="space-y-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Site Name</label>
-                        <input type="text" value="NMDPRA Innovation Hub" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-nmdpra-blue">
+                        <input type="text" value="WAKANDA INNOVATION HUB" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-nmdpra-blue">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Site Description</label>

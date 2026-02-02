@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>NMDPRA Innovation Hub - Strengthening Regulatory Oversight & Energy Supply Security</title>
+        <title>WAKANDA INNOVATION HUB - Strengthening Regulatory Oversight & Energy Supply Security</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -82,6 +82,15 @@
             .slide.active {
                 opacity: 1;
             }
+            .slide-video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 1;
+            }
             .slide-content {
                 text-align: center;
                 color: white;
@@ -148,7 +157,7 @@
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
                         <img src="nmdpraLogo.png" alt="NMDPRA Logo" class="h-8 w-8 mr-3">
-                        <span class="text-xl font-bold text-gray-900">NMDPRA Innovation Hub</span>
+                        <span class="text-xl font-bold text-gray-900">WAKANDA INNOVATION HUB</span>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
                         <a href="#about" class="text-gray-600 hover:text-nmdpra-blue transition-colors">About</a>
@@ -173,24 +182,36 @@
 
         <!-- Hero Slider Section -->
         <section class="hero-slider">
-            <!-- Slide 1: Innovation Hub -->
-            <div class="slide active" style="background-image: url('slide-1.jpg');">
+            <!-- Slide 1: Video Only -->
+            <div class="slide active">
+                <video class="slide-video" autoplay muted loop playsinline>
+                    <source src="{{ asset('videos/innovation-hub-hero.mp4') }}" type="video/mp4">
+                    <source src="{{ asset('videos/innovation-hub-hero.webm') }}" type="video/webm">
+                    <!-- Fallback background image if video doesn't load -->
+                </video>
+                <!-- Fallback background for browsers that don't support video -->
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('slide-1.jpg'); z-index: 0;"></div>
+                <div class="slide-overlay"></div>
+            </div>
+
+            <!-- Slide 2: Innovation Hub -->
+            <div class="slide" style="background-image: url('slide-1.jpg');">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
                     <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
                         <span class="text-sm font-medium">🚀 Internal Innovation Programme</span>
                     </div>
                     <h1 class="text-5xl lg:text-7xl font-bold mb-6">
-                        NMDPRA Innovation Hub
+                        WAKANDA INNOVATION HUB
                     </h1>
                     <h2 class="text-2xl lg:text-3xl font-light mb-8 text-blue-100">
                         Strengthening Regulatory Oversight & Energy Supply Security
                     </h2>
                     <p class="text-xl text-blue-100 max-w-4xl mx-auto mb-10 leading-relaxed">
-                        The NMDPRA Innovation Hub Challenge is an exclusive internal programme designed for NMDPRA staff to generate, test, and scale regulatory innovations.
+                        The WAKANDA INNOVATION HUB Challenge is an exclusive internal programme designed for NMDPRA staff to generate, test, and scale regulatory innovations.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#submit-idea" class="bg-white text-nmdpra-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-flex items-center">
+                        <a href="{{ route('admin.innovations.create') }}" class="bg-white text-nmdpra-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-flex items-center">
                             <i class="fas fa-lightbulb mr-2"></i>
                             Submit an Idea
                         </a>
@@ -202,7 +223,7 @@
                 </div>
             </div>
 
-            <!-- Slide 2: Technology Innovation -->
+            <!-- Slide 3: Technology Innovation -->
             <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2025&auto=format&fit=crop');">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
@@ -231,7 +252,7 @@
                 </div>
             </div>
 
-            <!-- Slide 3: Energy Security -->
+            <!-- Slide 4: Energy Security -->
             <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop');">
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
@@ -273,6 +294,7 @@
                 <div class="indicator active" onclick="currentSlide(1)"></div>
                 <div class="indicator" onclick="currentSlide(2)"></div>
                 <div class="indicator" onclick="currentSlide(3)"></div>
+                <div class="indicator" onclick="currentSlide(4)"></div>
             </div>
         </section>
 
@@ -433,7 +455,7 @@
         </section>
 
         <!-- Submit Innovation Idea Form -->
-        <section id="submit-idea" class="py-20 bg-gray-50">
+        {{-- <section id="submit-idea" class="py-20 bg-gray-50">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl font-bold text-gray-900 mb-4">Submit an Innovation Idea</h2>
@@ -519,7 +541,7 @@
                     </form>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- Hall of Fame -->
         <section id="hall-of-fame" class="py-20">
